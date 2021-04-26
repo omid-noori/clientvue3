@@ -66,7 +66,7 @@ export default {
     });
 
     // Fetching Data
-    const URL = 'http://192.168.52.101:3000/uploads';
+    const URL = 'http://localhost:3000/uploads';
     fetch(URL)
       .then((res) => res.json())
       .then((data) => {

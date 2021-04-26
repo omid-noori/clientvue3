@@ -373,7 +373,7 @@ export default {
       Data.text = textArea.value.replace(/(\r\n|\n|\r)/gm, '<br>');
 
       const body = [cover.value, music.value, JSON.stringify(Data)];
-      const URL = 'http://192.168.52.101:3000/uploads';
+      const URL = 'http://localhost:3000/uploads';
       const formData = new FormData();
       const errorMsg = document.querySelector('.response');
 
@@ -516,7 +516,7 @@ export default {
         });
     };
     if (userPosts.value === null) {
-      const url = 'http://192.168.52.101:3000/uploads/userPosts';
+      const url = 'http://localhost:3000/uploads/userPosts';
       getUserData(url, (data) => {
         userPosts.value = data;
       });

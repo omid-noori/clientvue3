@@ -138,7 +138,7 @@ export default {
       },
     });
     const AdminData = ref(null);
-    const serverURL = 'http://192.168.52.101:3000';
+    const serverURL = 'http://localhost:3000';
     const adminPictureURL = ref(null);
     const uploadMessage = ref(false);
     const messageError = ref(false);

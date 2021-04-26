@@ -260,7 +260,7 @@ export default {
         loading.value = true;
         sendData(
           loginProperties,
-          'http://192.168.52.101:3000/login',
+          'http://localhost:3000/login',
           (res, error) => {
             if (error) {
               const keys = Object.keys(loginProperties);
@@ -316,7 +316,7 @@ export default {
             loading.value = true;
             sendData(
               signupProperties,
-              'http://192.168.52.101:3000/signup',
+              'http://localhost:3000/signup',
               (res, error) => {
                 if (error) {
                   console.log(error.response.data.message);

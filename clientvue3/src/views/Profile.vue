@@ -174,7 +174,7 @@ export default {
         lastName: lastName.value,
         email: email.value,
       };
-      const profileURL = 'http://192.168.52.101:3000/profile';
+      const profileURL = 'http://localhost:3000/profile';
       Store.commit('setContacts', body);
       fetch(profileURL, {
         method: 'POST',
@@ -195,7 +195,7 @@ export default {
           messageError.value = true;
         });
     };
-    const FileURLDestination = 'http://192.168.52.101:3000/uploads/media/';
+    const FileURLDestination = 'http://localhost:3000/uploads/media/';
     onMounted(() => {
       const profilePicImg = document.querySelector('.profilePicture');
       const {
@@ -235,7 +235,7 @@ export default {
       const file = e.path[0].files[0];
       const formData = new FormData();
       formData.append('profilePicture', file);
-      const URL = 'http://192.168.52.101:3000/profilePicture';
+      const URL = 'http://localhost:3000/profilePicture';
       const headers = {
         'Content-Type':
           'multipart/form-data; charset=utf-8; boundary=' +
