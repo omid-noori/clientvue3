@@ -158,7 +158,7 @@ export default {
     const Store = useStore();
     const uploadMessage = ref(false);
     const messageError = ref(false);
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
 
     const update = () => {
       const {instagram, facebook, website, twitter} = CONTACTS;

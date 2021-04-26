@@ -46,7 +46,7 @@ export default {
     console.log(fetchedData.value);
     const slider = ref(null);
     let loading = ref(true);
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     const destinationFileURL = `${serverURL}/uploads/media/`;
     let sectionIndex = 0;
     let procentage = 0;

@@ -114,7 +114,7 @@ export default {
   emits: ['cancel', 'edit'],
   setup(props, {emit}) {
     const Store = useStore();
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     const URL = `${serverURL}/uploads/media/`;
     const data = ref(props.data);
     let close = ref(false);

@@ -191,7 +191,7 @@ export default {
     let loading = ref(false);
     let messageError = ref(false);
     let authenticationMsg = ref(false);
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     const Store = useStore();
     const Router = useRouter();
 

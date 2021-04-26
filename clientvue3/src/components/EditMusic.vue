@@ -92,7 +92,7 @@ export default {
     const cancel = () => {
       emit('cancel');
     };
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     const save = () => {
       data.value.text = text.value;
       data.value.text = data.value.text.replace(/(\r\n|\n|\r)/gm, '<br>');

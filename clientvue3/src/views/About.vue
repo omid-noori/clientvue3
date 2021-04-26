@@ -138,7 +138,7 @@ export default {
       },
     });
     const AdminData = ref(null);
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     const adminPictureURL = ref(null);
     const uploadMessage = ref(false);
     const messageError = ref(false);

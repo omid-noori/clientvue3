@@ -198,7 +198,7 @@ export default {
     const MusicData = ref(props.musicData[0]);
     let musicLoop = ref(false);
     let musicMute = ref(false);
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     const URL = `${serverURL}/uploads/media/`;
 
     let audioContext, audio, analyser, animationId, dataArray, context, canvas;

@@ -234,7 +234,7 @@ export default {
     const cover = ref(null);
     const music = ref(null);
     const selectedCover = ref(null);
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
 
     let isPlaying = ref(false);
     const audio = new Audio();

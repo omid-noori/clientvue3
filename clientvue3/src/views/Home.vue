@@ -64,7 +64,7 @@ export default {
       fromNow: null,
       uploaded: null,
     });
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     // Fetching Data
     const URL = serverURL + '/uploads';
     fetch(URL)

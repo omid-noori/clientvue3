@@ -37,16 +37,6 @@
             </router-link>
           </div>
         </div>
-        <!-- <li
-          class="profile"
-          v-if="$store.state.isAuthenticated"
-          @click.prevent="HamburgerTransition"
-        >
-          <img src="../assets/received_2.jpeg" alt="" />
-          <router-link to="/profile">
-            Profile
-          </router-link>
-        </li> -->
 
         <li @click.prevent="HamburgerTransition" v-for="route in props.Routes">
           <img :src="route.icone" alt="" />
@@ -111,7 +101,7 @@ export default {
     const isActive = ref(false);
     const Store = useStore();
     const Router = useRouter();
-    const serverURL = 'http://localhost:3000';
+    const serverURL = 'https://rapgap.herokuapp.com';
     const URL = `${serverURL}/uploads/media/`;
 
     const HamburgerTransition = () => {
