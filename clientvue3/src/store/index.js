@@ -15,7 +15,7 @@ export default createStore({
       state.User = data;
     },
     setProfilePic(state, data) {
-      state.User.profilePicKey = data;
+      state.User.profilePic = data;
     },
     setContacts(state, data) {
       state.User = Object.assign(state.User, data);

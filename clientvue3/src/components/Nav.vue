@@ -16,10 +16,10 @@
           @click.prevent="toProfile"
         >
           <div
-            v-if="$store.state.User.profilePicKey"
+            v-if="$store.state.User.profilePic.Key"
             :style="{
               backgroundImage:
-                'url(' + URL + $store.state.User.profilePicKey + ')',
+                'url(' + URL + $store.state.User.profilePic.Key + ')',
             }"
             class="profilePic"
           ></div>

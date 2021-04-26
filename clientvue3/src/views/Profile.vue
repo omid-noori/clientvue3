@@ -200,7 +200,7 @@ export default {
     onMounted(() => {
       const profilePicImg = document.querySelector('.profilePicture');
       const {
-        profilePicKey,
+        profilePic,
         firstName,
         lastName,
         // userName,
@@ -208,9 +208,9 @@ export default {
         description,
         contacts,
       } = Store.state.User;
-      const condition = profilePicKey != undefined || profilePicKey != null;
+      const condition = profilePic != undefined || profilePic != null;
       if (condition) {
-        profilePicImg.src = FileURLDestination + profilePicKey;
+        profilePicImg.src = FileURLDestination + profilePic.Key;
       }
       INFO.firstName.value = firstName;
       INFO.lastName.value = lastName;
@@ -246,9 +246,10 @@ export default {
         Authorization: `Bearer ${Store.state.User.token}`,
       };
       axios.post(URL, formData, {headers: headers}).then((result) => {
+        console.log(result);
         const profilePic = document.querySelector('.profilePicture');
         profilePic.src = FileURLDestination + result.data.updatedData.Key;
-        Store.commit('setProfilePic', result.data.updatedData.Key);
+        Store.commit('setProfilePic', result.data.updatedData);
       });
     };
     const finishUpload = () => {
