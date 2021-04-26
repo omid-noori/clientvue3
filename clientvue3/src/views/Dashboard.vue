@@ -234,6 +234,7 @@ export default {
     const cover = ref(null);
     const music = ref(null);
     const selectedCover = ref(null);
+    const serverURL = 'http://localhost:3000';
 
     let isPlaying = ref(false);
     const audio = new Audio();
@@ -373,7 +374,7 @@ export default {
       Data.text = textArea.value.replace(/(\r\n|\n|\r)/gm, '<br>');
 
       const body = [cover.value, music.value, JSON.stringify(Data)];
-      const URL = 'http://localhost:3000/uploads';
+      const URL = serverURL + '/uploads';
       const formData = new FormData();
       const errorMsg = document.querySelector('.response');
 
@@ -516,7 +517,7 @@ export default {
         });
     };
     if (userPosts.value === null) {
-      const url = 'http://localhost:3000/uploads/userPosts';
+      const url = serverURL + '/uploads/userPosts';
       getUserData(url, (data) => {
         userPosts.value = data;
       });

@@ -158,6 +158,7 @@ export default {
     const Store = useStore();
     const uploadMessage = ref(false);
     const messageError = ref(false);
+    const serverURL = 'http://localhost:3000';
 
     const update = () => {
       const {instagram, facebook, website, twitter} = CONTACTS;
@@ -174,7 +175,7 @@ export default {
         lastName: lastName.value,
         email: email.value,
       };
-      const profileURL = 'http://localhost:3000/profile';
+      const profileURL = serverURL + '/profile';
       Store.commit('setContacts', body);
       fetch(profileURL, {
         method: 'POST',
@@ -195,7 +196,7 @@ export default {
           messageError.value = true;
         });
     };
-    const FileURLDestination = 'http://localhost:3000/uploads/media/';
+    const FileURLDestination = serverURL + '/uploads/media/';
     onMounted(() => {
       const profilePicImg = document.querySelector('.profilePicture');
       const {
@@ -235,7 +236,7 @@ export default {
       const file = e.path[0].files[0];
       const formData = new FormData();
       formData.append('profilePicture', file);
-      const URL = 'http://localhost:3000/profilePicture';
+      const URL = serverURL + '/profilePicture';
       const headers = {
         'Content-Type':
           'multipart/form-data; charset=utf-8; boundary=' +

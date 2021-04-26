@@ -64,9 +64,9 @@ export default {
       fromNow: null,
       uploaded: null,
     });
-
+    const serverURL = 'http://localhost:3000';
     // Fetching Data
-    const URL = 'http://localhost:3000/uploads';
+    const URL = serverURL + '/uploads';
     fetch(URL)
       .then((res) => res.json())
       .then((data) => {

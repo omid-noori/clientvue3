@@ -191,7 +191,7 @@ export default {
     let loading = ref(false);
     let messageError = ref(false);
     let authenticationMsg = ref(false);
-
+    const serverURL = 'http://localhost:3000';
     const Store = useStore();
     const Router = useRouter();
 
@@ -258,37 +258,33 @@ export default {
       const validateState = validate(loginProperties);
       if (validateState) {
         loading.value = true;
-        sendData(
-          loginProperties,
-          'http://localhost:3000/login',
-          (res, error) => {
-            if (error) {
-              const keys = Object.keys(loginProperties);
+        sendData(loginProperties, `${serverURL}/login`, (res, error) => {
+          if (error) {
+            const keys = Object.keys(loginProperties);
+            setTimeout(() => {
+              keys.forEach((key) => {
+                document
+                  .getElementById(key)
+                  .parentElement.classList.add('error');
+                authenticationMsg.value = error.response.data.message;
+                messageError.value = true;
+              });
+              loading.value = false;
+            }, 3000);
+          } else {
+            console.log(res.data);
+            if (res) {
+              const {User, token} = res.data;
+              User.token = token;
               setTimeout(() => {
-                keys.forEach((key) => {
-                  document
-                    .getElementById(key)
-                    .parentElement.classList.add('error');
-                  authenticationMsg.value = error.response.data.message;
-                  messageError.value = true;
-                });
+                Store.commit('setUser', User);
+                Store.commit('setAuthentication', true);
+                Router.push('/profile');
                 loading.value = false;
-              }, 3000);
-            } else {
-              console.log(res.data);
-              if (res) {
-                const {User, token} = res.data;
-                User.token = token;
-                setTimeout(() => {
-                  Store.commit('setUser', User);
-                  Store.commit('setAuthentication', true);
-                  Router.push('/profile');
-                  loading.value = false;
-                }, 2000);
-              }
+              }, 2000);
             }
           }
-        );
+        });
       } else {
         authenticationMsg.value = 'Red fields are required!';
       }
@@ -314,27 +310,23 @@ export default {
             repeatPassword.parentElement.classList.remove('error');
           } else {
             loading.value = true;
-            sendData(
-              signupProperties,
-              'http://localhost:3000/signup',
-              (res, error) => {
-                if (error) {
-                  console.log(error.response.data.message);
-                  setTimeout(() => {
-                    loading.value = false;
-                    messageError.value = true;
-                    authenticationMsg.value = error.response.data.message;
-                  }, 3000);
-                } else {
-                  console.log(res);
-                  setTimeout(() => {
-                    loading.value = false;
-                    authenticationMsg.value =
-                      'Acoount successfully created! please login to your account.';
-                  }, 3000);
-                }
+            sendData(signupProperties, `${serverURL}/signup`, (res, error) => {
+              if (error) {
+                console.log(error.response.data.message);
+                setTimeout(() => {
+                  loading.value = false;
+                  messageError.value = true;
+                  authenticationMsg.value = error.response.data.message;
+                }, 3000);
+              } else {
+                console.log(res);
+                setTimeout(() => {
+                  loading.value = false;
+                  authenticationMsg.value =
+                    'Acoount successfully created! please login to your account.';
+                }, 3000);
               }
-            );
+            });
           }
         }
       } else {
