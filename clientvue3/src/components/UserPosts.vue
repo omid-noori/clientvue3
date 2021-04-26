@@ -114,7 +114,8 @@ export default {
   emits: ['cancel', 'edit'],
   setup(props, {emit}) {
     const Store = useStore();
-    const URL = 'http://192.168.52.101:3000/uploads/media/';
+    const serverURL = 'http://localhost:3000';
+    const URL = `${serverURL}/uploads/media/`;
     const data = ref(props.data);
     let close = ref(false);
     let uploadMessage = ref(false);
@@ -181,7 +182,7 @@ export default {
       uploadMessage.value = false;
       loading.value = true;
       const id = currentSelectedPost.value._id;
-      const deleteURL = 'http://192.168.52.101:3000/uploads/delete/' + id;
+      const deleteURL = `${serverURL}/uploads/delete/${id}`;
       currentSelectedPost.value = null;
 
       fetch(deleteURL, {
@@ -227,11 +228,9 @@ export default {
       return true;
     };
     const publicChange = () => {
-      const URL =
-        'http://192.168.52.101:3000/uploads/update/' +
-        currentSelectedPost.value._id;
+      const updateURL = `${serverURL}/uploads/update/${currentSelectedPost.value._id}`;
       console.log(currentSelectedPost.value.public);
-      fetch(URL, {
+      fetch(updateURL, {
         method: 'put',
         headers: new Headers({
           Authorization: `Bearer ${Store.state.User.token}`,

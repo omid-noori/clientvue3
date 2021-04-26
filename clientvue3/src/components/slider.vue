@@ -46,8 +46,8 @@ export default {
     console.log(fetchedData.value);
     const slider = ref(null);
     let loading = ref(true);
-
-    const destinationFileURL = 'http://192.168.52.101:3000/uploads/media/';
+    const serverURL = 'http://localhost:3000';
+    const destinationFileURL = `${serverURL}/uploads/media/`;
     let sectionIndex = 0;
     let procentage = 0;
 

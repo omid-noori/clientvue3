@@ -92,11 +92,12 @@ export default {
     const cancel = () => {
       emit('cancel');
     };
+    const serverURL = 'http://localhost:3000';
     const save = () => {
       data.value.text = text.value;
       data.value.text = data.value.text.replace(/(\r\n|\n|\r)/gm, '<br>');
       let bodyData = JSON.stringify(data.value);
-      const URL = 'http://192.168.52.101:3000/uploads/update/' + data.value._id;
+      const URL = `${serverURL}/uploads/update/${data.value._id}`;
       sendData(URL, bodyData);
     };
     const sendData = (URL, body) => {

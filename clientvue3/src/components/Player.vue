@@ -198,7 +198,8 @@ export default {
     const MusicData = ref(props.musicData[0]);
     let musicLoop = ref(false);
     let musicMute = ref(false);
-    const URL = 'http://192.168.52.101:3000/uploads/media/';
+    const serverURL = 'http://localhost:3000';
+    const URL = `${serverURL}/uploads/media/`;
 
     let audioContext, audio, analyser, animationId, dataArray, context, canvas;
     let bars = 150;

@@ -111,7 +111,8 @@ export default {
     const isActive = ref(false);
     const Store = useStore();
     const Router = useRouter();
-    const URL = 'http://192.168.52.101:3000/uploads/media/';
+    const serverURL = 'http://localhost:3000';
+    const URL = `${serverURL}/uploads/media/`;
 
     const HamburgerTransition = () => {
       if (window.innerWidth < 900) {
